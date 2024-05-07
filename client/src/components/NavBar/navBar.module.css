@@ -1,0 +1,40 @@
+.navbar {
+    background-color: #333; /* Color de fondo de la barra de navegación */
+    color: #fff; /* Color del texto en la barra de navegación */
+    padding: 10px 0; /* Espaciado interno superior e inferior */
+}
+
+.navbar-container {
+    max-width: 1200px; /* Ancho máximo del contenido de la barra de navegación */
+    margin: 0 auto; /* Centra la barra de navegación en la página */
+    display: flex;
+    justify-content: space-between; /* Distribuye los elementos de manera uniforme */
+    align-items: center; /* Centra verticalmente los elementos */
+}
+
+.navbar-logo a {
+    color: #fff; /* Color del texto del logo */
+    text-decoration: none; /* Quita el subrayado del enlace */
+    font-weight: bold; /* Peso de la fuente */
+    font-size: 1.5rem; /* Tamaño de la fuente */
+}
+
+.navbar-menu {
+    list-style-type: none; /* Quita los estilos de lista */
+    display: flex;
+}
+
+.navbar-menu li {
+    margin-right: 20px; /* Espaciado entre elementos del menú */
+}
+
+.navbar-menu li a {
+    color: #fff; /* Color del texto del menú */
+    text-decoration: none; /* Quita el subrayado del enlace */
+    font-size: 1rem; /* Tamaño de la fuente */
+    transition: color 0.3s ease; /* Transición suave del color al pasar el ratón */
+}
+
+.navbar-menu li a:hover {
+    color: #ffd700; /* Color del texto al pasar el ratón */
+}

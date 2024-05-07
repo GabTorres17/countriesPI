@@ -1,0 +1,31 @@
+.container {
+    background-color: gray;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    display: "flex";
+    flex-wrap: "wrap";
+    justify-content: "space-evenly";
+    box-shadow: 0 10px 10 px black;
+    &:hover {
+        box-shadow: 0 15px 15px white;
+    }
+}
+
+.container img {
+    width: 130px;
+    box-shadow: 0 10px 10px black;
+    border-radius: 5px;
+}
+
+.container button {
+    background-color: darkslategray;
+    margin: 10px;
+    &:hover {
+        background-color: darkcyan;
+    }
+}
+
+.container h2 {
+    color: white
+}

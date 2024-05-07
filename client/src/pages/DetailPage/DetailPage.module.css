@@ -1,0 +1,29 @@
+.detail-page {
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.main-content {
+    display: flex;
+    justify-content: center;
+}
+
+.country-info {
+    max-width: 600px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.country-info h2 {
+    margin-bottom: 10px;
+}
+
+.country-info p {
+    margin-bottom: 5px;
+}
