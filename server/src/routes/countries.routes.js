@@ -6,9 +6,15 @@ const router = Router();
 const { Country, id } = require('../models/Country');
 
 router.get('/', async (req, res) => {
+  const { name } = req.query;
   try {
-    const api = await getAllCountries();
-    res.status(200).json(api);
+    if (name) {
+      const getByName = await getCountryByName(name);
+      res.status(200).json(getByName)
+    } else {
+      const api = await getAllCountries();
+      res.status(200).json(api);
+    }
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal Server Error' });
@@ -30,8 +36,8 @@ router.get('/:id', async (req, res) => {
 }
 )
 
-router.get('/', async (req, res) => {
-  const { name } = req.query;
+/* router.get('/', async (req, res) => {
+
   try {
     // let getByName = await getCountryByName(name)
     // if (!getByName || !Array.isArray(getByName)) {
@@ -46,6 +52,6 @@ router.get('/', async (req, res) => {
     console.error(error);
     res.status(500).json({ error: "Internal Server Error " })
   }
-})
+}) */
 
 module.exports = router;

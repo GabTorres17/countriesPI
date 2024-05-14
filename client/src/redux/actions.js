@@ -9,6 +9,8 @@ export const CLOSE = 'CLOSE';
 export const CHECKING = 'CHECKIN';
 export const GET_ACTIVITIES = 'GET_ACTIVITIES';
 export const GET_SELECTED_ACTIVITY = 'GET_SELECT_ACTIVITY';
+export const GET_COUNTRY_BY_ID = 'GET_COUNTRY_BY_ID';
+export const BACK_NAVIGATION = "BACK_NAVIGATION";
 
 
 export const getCountries = () => async dispatch => {
@@ -19,8 +21,20 @@ export const getCountries = () => async dispatch => {
         console.log(error.message)
     }
 }
+export const getCountryById = (id) => async dispatch => {
+    try {
+        let res = await axios.get(`http://localhost:3001/countries/${id}`)
+        return dispatch({ type: GET_COUNTRY_BY_ID, payload: res.data })
+
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+export const backNavigation = () => ({
+    type: BACK_NAVIGATION,
+});
 export const getActivities = () => async dispatch => {
-    let json = await axios.get('/activities')
+    let json = await axios.get('http://localhost:3001/activities')
     return dispatch({ type: GET_ACTIVITIES, payload: json.data })
 }
 
@@ -39,10 +53,11 @@ export const continent = payload => dispatch => {
     return dispatch({ type: CONTINENTS, payload })
 }
 
-export const getByName = (value) => async dispatch => {
+export const getByName = (name) => async dispatch => {
     try {
-        let json = await axios.get(`/countries?name=${value}`)
-        return dispatch({ type: SEARCH_BY_NAME, payload: json.data })
+        let json = await axios.get(`http://localhost:3001/countries?name=${name}`)
+        if (json.data.length === 0) return dispatch({ type: ERROR })
+        else return dispatch({ type: SEARCH_BY_NAME, payload: json.data })
     } catch (error) {
         return dispatch({ type: ERROR })
     }

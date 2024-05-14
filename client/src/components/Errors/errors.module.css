@@ -1,0 +1,46 @@
+.card {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.flex {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #fffbfb;
+}
+
+.title {
+    margin-top: 20px;
+}
+
+.h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.status {
+    margin-top: 10px;
+}
+
+.h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #dc3545;
+}
+
+.img {
+    width: 600px;
+    /* Ajusta el ancho de la imagen según lo necesario */
+    height: auto;
+    /* Mantiene la proporción de la imagen */
+}

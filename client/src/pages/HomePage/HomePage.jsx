@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { getActivities, getCountries } from '../../redux/actions';
+import { getActivities, getCountries, backNavigation } from '../../redux/actions';
+import { useNavigate } from 'react-router-dom';
 import Filters from "../../components/Filter/Filter";
 import Errors from "../../components/Errors/Errors";
 import Create from "../../components/Create/Create";
 import Check from "../../components/Check/Check";
 import s from "./HomePage.module.css";
 import Cards from "../../components/Cards/Cards";
-import axios from "axios";
 import Pagination from '../../components/Pagination/pagination';
 import Nav from "../../components/Nav/Nav"
 
@@ -18,6 +18,7 @@ const HomePage = () => {
     const check = useSelector(state => state.check)
     const [form, setForm] = useState(false)
     const activities = useSelector(state => state.activities)
+    const history = useNavigate();
 
     const [sort, setSort] = useState(true)
 
@@ -30,13 +31,14 @@ const HomePage = () => {
         if (!sorting[0]) {
             dispatch(getCountries())
         }
-        // dispatch(getActivities())
+        dispatch(getActivities())
     }, [dispatch, sorting])
-
+    console.log(activities)
     return (
         <div className={s.container}>
             {sorting.length > 0 ?
                 <div>
+                    <button onClick={() => history(-1)}>←</button>
                     <Nav setForm={setForm} setInput={setInput} setCurrent={setCurrent} searchBar='true' />
                     {error && <Errors />}
                     {check && <Check />}

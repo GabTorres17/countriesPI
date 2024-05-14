@@ -1,23 +1,13 @@
-const { getAllCountries } = require("./getAllCountries");
+const { Op } = require("sequelize");
+const { Country } = require("../../src/db");
+
 
 const getCountryByName = async (name) => {
-    // try {
-    //     const countriesList = await getAllCountries();
-    //     const matchedCountry = countriesList.filter(country =>
-    //         country.name.toLowerCase().includes(name.toLowerCase()));
-    //     if (matchedCountry === 0) {
-    //         console.log("No se encontró el país buscado")
-    //         return null;
-    //     }
-    //     return matchedCountry;
-    // } catch (error) {
-    //     console.log(error.message)
-    // }
     try {
-        const { name } = req.query;
-        const matchedCountry = await getAllCountries.findAll({
+        let matchedCountry = await Country.findAll({
             where: { name: { [Op.iLike]: `%${name}%` } },
         });
+        return matchedCountry;
     } catch (error) {
         console.log(error.message);
     }

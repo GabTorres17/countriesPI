@@ -1,5 +1,6 @@
 .container {
     background-color: gray;
+    color: white;
     margin: 20px;
     padding: 20px;
     border-radius: 15px;
@@ -7,8 +8,9 @@
     flex-wrap: "wrap";
     justify-content: "space-evenly";
     box-shadow: 0 10px 10 px black;
+
     &:hover {
-        box-shadow: 0 15px 15px white;
+        box-shadow: 0 10px 10px white;
     }
 }
 
@@ -19,13 +21,10 @@
 }
 
 .container button {
-    background-color: darkslategray;
+    background-color: black;
     margin: 10px;
+
     &:hover {
         background-color: darkcyan;
     }
-}
-
-.container h2 {
-    color: white
 }

@@ -1,71 +1,72 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import Nav from '../../components/Nav/Nav';
-import s from '../DetailPage/DetailPage.module.css';
+import React, { useEffect } from "react";
+import styles from "./DetailPage.module.css";
+import { getCountryById, backNavigation } from "../../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams, useNavigate } from "react-router-dom";
 
-const Detail = () => {
-  const [imgBandera, setImgBandera] = useState(0)
-  const [country, setCountry] = useState()
-  let { id } = useParams()
+
+export default function DetailPage() {
+  const history = useNavigate();
+  const dispatch = useDispatch();
+  const { id } = useParams();
+  const country = useSelector((state) => state.countryById);
+
+
   useEffect(() => {
-    axios.get(`/countries/${id}`)
-      .then(res => setCountry(res.data))
-  }, [id])
+    const fetchCountry = async () => {
+      try {
+        await dispatch(getCountryById(id));
+        console.log(getCountryById)
+      } catch (error) {
+        console.error("Error fetching country details:", error);
+      }
+    };
+    fetchCountry();
+  }, [dispatch, id]);
 
-  let max = country?.imgBandera?.length
-
-  return (
-    <div className={s.container}>
-      <div className={s.nav}>
-        <Nav back='true' />
-      </div>
-      <div className={s.flex}>
-        <div className={s.card}>
-          <div className={s.carousel}>
-            <div className={s.carouselDiv}>
-              <button className={s.arrow} disabled={imgBandera === 0} onClick={() => setImgBandera(imgBandera - 1)} >
-                <span className="material-symbols-outlined">
-                  arrow_back_ios
-                </span>
-              </button>
-              <button className={s.arrow} disabled={imgBandera === max - 1} onClick={() => setImgBandera(image + 1)} >
-                <span className="material-symbols-outlined">
-                  arrow_forward_ios
-                </span>
-              </button>
-              <img className={s.bigImg} src={country ? country.imgBandera[image] : undefined} alt='' />
-            </div>
-            <div className={s.imgContainer}>
-              {
-                country
-                  ? country.imgBandera?.slice(0, 5).map((e, i) => (
-                    <div key={i}>
-                      <img className={s.imgs} src={e} alt="" onClick={() => setImgBandera(i)} />
-                    </div>
-                  ))
-                  : undefined
-              }
-            </div>
+  if (!country) {
+    return <div>Cargando...</div>
+  }
+  {
+    return (
+      <div>
+        <button onClick={() => history(-1)}>←</button>
+        <div className={styles.container}>
+          <div className={styles.leftColumn}>
+            <h1>{country.name}</h1>
+            <img src={country.imgBandera} alt="Country Flag" />
           </div>
-          <div>
-            <img className={s.flag} src={country?.flag} alt={country?.name} />
-            <h3 className={s.title}>{country?.name}</h3>
-            <div className={s.tags}>
-            </div>
-            <div className={s.id}>
-              <h3 className={s.span}>{country?.id}</h3>
-            </div>
-            <h4>Continent: <span className={s.span}>{country?.continente}</span></h4>
-            <h4>Capital: <span className={s.span}>{country?.capital}</span></h4>
-            <h4>Subregion: <span className={s.span}> {country?.subregion}</span></h4>
-            <h4>Population: <span className={s.span}>{country?.poblacion}</span> </h4>
-            <h4>Area: <span className={s.span}>{country?.area}</span></h4>
+          <div className={styles.rightColumn}>
+            <h2>ID: {country.id}</h2>
+            <h2>Continente: {country.continente}</h2>
+            <h2>Capital: {country.capital}</h2>
+            <h2>Subregion: {country.subregion}</h2>
+            <h2>Area: {country.area}</h2>
+            <h2>Poblacion: {country.poblacion} habitantes</h2>
           </div>
         </div>
-      </div>
-    </div>
-  )
-}
 
-export default Detail;
+        <div className={styles.activity}>
+          {country.countryActivities && country.countryActivities.length > 0 ? (
+            country.countryActivities.map((activity) => (
+              <div key={activity.id}>
+                <h2>
+                  Activity:
+                  <br /> {activity.name}
+                </h2>
+                <h3>ID: {activity.id}</h3>
+                <h3>Dificultad: {activity.dificultad}</h3>
+                <h3>Duracion: {activity.duracion}</h3>
+                <h3>Temporada: {activity.temporada}</h3>
+                <br />
+                <hr />
+              </div>
+            ))
+          ) : (
+            <h2>Este país no contiene actividades hasta el momento</h2>
+          )}
+        </div>
+      </div>
+    );
+  };
+}

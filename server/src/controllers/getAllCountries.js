@@ -23,29 +23,19 @@ const getAllCountries = async () => {
             console.log("Se guardaron los datos correctamente");
         }
         let dbActivities = await Country.findAll({
-            include: {
-                model: Activity,
-                attributes: ["name"],
-                through: {
-                    attributes: []
-                }
-            }
-        })
+            include: [
+                {
+                    model: Activity,
+                    as: "countryActivities",
+                },
+            ],
+        });
         // if (getDB.length) {
         //     getDB = await getDB?.filter(e => e.name !== 'French Southern and Antarctic Lands')
         // }
         return dbActivities;
     } catch (error) {
         console.log(error.message);
-    }
-}
-
-const saveCountriesToDB = async () => {
-    try {
-        const countriesData = await getAllCountries();
-
-    } catch (error) {
-        console.log("Error al guardar los datos:", error.message);
     }
 }
 

@@ -1,13 +1,15 @@
-import { CHECKING, CLOSE, CONTINENTS, ERROR, GET_ACTIVITIES, GET_ALL_COUNTRIES, GET_SELECTED_ACTIVITY, GET_SORT, POPULATION, SEARCH_BY_NAME } from "./action-types"
+import { CHECKING, GET_COUNTRY_BY_ID, BACK_NAVIGATION, CLOSE, CONTINENTS, ERROR, GET_ACTIVITIES, GET_ALL_COUNTRIES, GET_SELECTED_ACTIVITY, GET_SORT, POPULATION, SEARCH_BY_NAME } from "./action-types";
 
 
 
 const initialState = {
     countries: [],
+    countryById: [],
     sorting: [],
     error: false,
     check: false,
-    activities: []
+    activities: [],
+    history: window.history
 }
 
 const reducer = (state = initialState, action) => {
@@ -19,13 +21,24 @@ const reducer = (state = initialState, action) => {
                 countries: action.payload,
                 sorting: a,
             }
+        case GET_COUNTRY_BY_ID:
+            return {
+                ...state,
+                countryById: action.payload,
+            }
+
+        case BACK_NAVIGATION:
+            if (state.history && state.history.goBack) {
+                state.history.goBack();
+            }
+            return { ...state };
         case GET_ACTIVITIES:
             return {
                 ...state,
                 activities: action.payload,
             }
         case GET_SELECTED_ACTIVITY:
-            const result = state.countries.filter(e => e.activity.includes(action.payload))
+            const result = state.countries.filter(e => e.countryActivities.some((activity) => activity.name == action.payload))
             return {
                 ...state,
                 sorting: result,

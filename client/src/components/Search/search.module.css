@@ -1,0 +1,39 @@
+.input {
+    font-family: "Segoe UI", "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #121212;
+    background-color: #dde1e7;
+    box-shadow: inset -5px -5px 5px #ffffff73,
+        inset 5px 5px 5px #5e68794d;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    padding: 0.4vw;
+    width: 320px;
+    transition: .4s;
+}
+
+.input:focus {
+    box-shadow: inset -3px -3px 5px #ffffff,
+        inset 3px 3px 5px #5e6879;
+}
+
+
+.searchBtn {
+    background-color: transparent;
+    border: none;
+    color: #31696d;
+    position: relative;
+    top: 5px;
+    left: 4px;
+}
+
+.searchBtn:hover {
+    cursor: pointer;
+}
+
+.searchBtn span {
+    color: #fff;
+    font-size: 22px;
+}

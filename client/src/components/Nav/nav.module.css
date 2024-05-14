@@ -1,0 +1,64 @@
+.container {
+    position: relative;
+    /* Posición relativa para los elementos hijos */
+    background-color: #333;
+    /* Color de fondo de la barra de navegación */
+    color: #fff;
+    /* Color del texto */
+    padding: 10px 20px;
+    /* Espaciado interior */
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.img {
+    width: 40px;
+    /* Tamaño de la imagen del logo */
+    height: 40px;
+    margin-right: 10px;
+    /* Espacio entre la imagen y el texto */
+    z-index: 999;
+    /* Coloca la imagen encima de todo */
+}
+
+.title {
+    font-size: 1.5rem;
+    /* Tamaño del texto del título */
+    font-weight: bold;
+    margin: 0;
+}
+
+.back {
+    font-size: 1.5rem;
+    /* Tamaño del texto de retroceso */
+    margin: 0;
+    cursor: pointer;
+}
+
+/* Estilos para el botón (si es necesario) */
+.button {
+    background-color: #007bff;
+    /* Color de fondo del botón */
+    color: #fff;
+    /* Color del texto del botón */
+    padding: 8px 16px;
+    /* Espaciado interno del botón */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.button:hover {
+    background-color: #0056b3;
+    /* Cambio de color al pasar el ratón */
+}

@@ -1,12 +1,13 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getSort, population, continent, deleteFilters, getSelectedActivity } from "../../redux/actions";
+import { getSort, population, continent, deleteFilters, getSelectedActivity, getCountries } from "../../redux/actions";
 import Button from '../Button/Button';
 import s from './filters.module.css'
 
 const Filters = ({ setSort, sort, setInput, setCurrent }) => {
     const dispatch = useDispatch()
     const activities = useSelector(state => state.activities)
+    const countries = useSelector((state) => state.countries);
 
     const handleSort = (e) => {
         dispatch(getSort(e.target.value))
@@ -22,6 +23,7 @@ const Filters = ({ setSort, sort, setInput, setCurrent }) => {
         dispatch(continent(e.target.value))
         setInput(1)
         setCurrent(1)
+        document.getElementById('sort').value = 'sort'
     }
 
     const handleClick = (e) => {
@@ -33,10 +35,23 @@ const Filters = ({ setSort, sort, setInput, setCurrent }) => {
     }
 
     const handleActivity = (e) => {
-        dispatch(getSelectedActivity(e.target.value))
-        setInput(1)
-        setCurrent(1)
+        const activity = e.target.value;
+        if (activity) {
+            dispatch(getSelectedActivity(e.target.value))
+            /*             setInput(1)
+                        setCurrent(1) */
+        } else { dispatch(getCountries()) }
     }
+
+    //metodo reduce en la matriz countries para acomular las actividades en set y eliminar duplicados
+    const allActivities = countries.reduce((acc, country) => {
+        country.countryActivities.forEach((activity) => {
+            acc.add(activity.name);
+        });
+        return acc;
+    }, new Set());
+    //convierte el conunto en un array con las actividades unicas
+    const uniqueActivities = Array.from(allActivities);
 
     return (
         <div className={s.container}>

@@ -23,9 +23,8 @@ function App() {
         } */}
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/countries" element={<HomePage />} >
-            <Route path="/countries/:id" element={<DetailPage />} />
-          </Route>
+          <Route path="/countries" element={<HomePage />} />
+          <Route path="/countries/:id" element={<DetailPage />} />
           <Route path="/form" element={<FormPage />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
