@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getSort, population, continent, deleteFilters, getSelectedActivity, getCountries } from "../../redux/actions";
 import Button from '../Button/Button';
@@ -8,6 +8,7 @@ const Filters = ({ setSort, sort, setInput, setCurrent }) => {
     const dispatch = useDispatch()
     const activities = useSelector(state => state.activities)
     const countries = useSelector((state) => state.countries);
+    const [activityList, setActivityList] = useState([]);
 
     const handleSort = (e) => {
         dispatch(getSort(e.target.value))
@@ -43,16 +44,22 @@ const Filters = ({ setSort, sort, setInput, setCurrent }) => {
         } else { dispatch(getCountries()) }
     }
 
-    //metodo reduce en la matriz countries para acomular las actividades en set y eliminar duplicados
-    const allActivities = countries.reduce((acc, country) => {
-        country.countryActivities.forEach((activity) => {
-            acc.add(activity.name);
-        });
+    /* //metodo reduce en la matriz countries para acomular las actividades en set y eliminar duplicados
+    const allActivities = activities.reduce((acc, e) => {
+        activities.map((e) => e.name);
         return acc;
     }, new Set());
     //convierte el conunto en un array con las actividades unicas
-    const uniqueActivities = Array.from(allActivities);
+    const uniqueActivities = Array.from(allActivities); */
 
+    useEffect(() => {
+        let activityFilter = activities.map(e => e.name)
+        activityFilter = activityFilter.filter((value, index, self) => {
+            return self.indexOf(value) === index;
+        });
+        setActivityList(activityFilter)
+    }, [])
+    console.log(activityList)
     return (
         <div className={s.container}>
             <div className={s.selectContainer}>
@@ -88,8 +95,8 @@ const Filters = ({ setSort, sort, setInput, setCurrent }) => {
                 <label htmlFor="" className={s.label}>Activity</label>
                 <select name="Activity" className={s.select} onChange={handleActivity}>
                     <option value='activities' className={s.option}>Activities</option>
-                    {activities?.length
-                        ? activities.map(e => <option key={e.id} value={e.name} >{e.name}</option>)
+                    {activityList?.length
+                        ? activityList.map((e, i) => <option key={i} value={e} >{e}</option>)
                         : undefined
                     }
                 </select>

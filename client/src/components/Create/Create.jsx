@@ -56,32 +56,31 @@ const Create = ({ setForm }) => {
         }
     }
 
-    const handleCreate = (e) => {
-        axios.post("http://localhost:3001/activities", create)
-        setForm(false)
-        dispatch(checking())
-    }
-    /* const handleCreate = async (e) => {
+    const handleCreate = async (e) => {
+        e.preventDefault();
         try {
-            const existingActivity = await dispatch(getByName(create.name));
-            console.log("Hola", existingActivity)
-            if (existingActivity && existingActivity.length > 0) {
-                alert("Ya existe una actividad con ese nombre para el país seleccionado");
-                return;
+            const newActivity = await axios.post("http://localhost:3001/activities", create);
+
+            if (newActivity.status === 200) {
+                setForm(false);
+                dispatch(checking());
+                window.location.reload();
             }
-            await axios.post("http://localhost:3001/activities", create);
-            setForm(false);
-            dispatch(checking());
         } catch (error) {
-            console.error("Error al crear la actividad:", error);
+            if (error.response && error.response.status === 400) {
+                console.log("Error 400: La solicitud no fue válida", error);
+                alert("Ya existe esta actividad para uno de los países seleccionados.");
+            } else {
+                console.log("Error al enviar la solicitud:", error);
+            }
         }
-    } */
+    };
 
     const handleDelete = (e) => {
         e.preventDefault()
         setCreate({
             ...create,
-            country: create.country.filter(el => el !== e.target.value)
+            countryId: create.countryId.filter(el => el !== e.target.value)
         })
     }
 

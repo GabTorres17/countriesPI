@@ -14,7 +14,7 @@ const getAllCountries = async () => {
             continente: e.continents[0],
             capital: e.capital,
             subregion: e.subregion,
-            area: `${e.area} km2`,
+            area: e.area,
             poblacion: e.population
         }))
         let getDB = await Country.findAll();
