@@ -8,17 +8,17 @@ const LandingPage = () => {
     const navigate = useNavigate();
 
     const backToHome = () => {
-      navigate('/countries');
+        navigate('/countries');
     };
     return (
         <div className={styles.landingPage}>
             <header className={styles.header}>
                 <h1>Bienvenidos a mi PI de Countries</h1>
-                <p>Disfruta tu estadía en mi proyecto individual, tengo muchos países de todas formas y colores :D</p>
+                <p>Disfruta tu estadía en mi proyecto individual, tengo muchos países de todas las formas y colores :D</p>
             </header>
-                <section className={styles.start}>
-                    <button onClick={backToHome}>Comenzar</button>
-                </section>
+            <section className={styles.start}>
+                <button onClick={backToHome}>Comenzar</button>
+            </section>
             <footer className={styles.footer}>
                 <p>&copy; 2024 Gabriel Torres Inc. All rights reserved.</p>
             </footer>
