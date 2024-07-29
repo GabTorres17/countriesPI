@@ -12,15 +12,10 @@ function App() {
   //const [count, setCount] = useState(0)
   //<Route path="/countries" element={<HomePage />} >
   //<Route path="/countries/:id" element={<DetailPage />} />
-  const location = useLocation();
-  console.log(location.pathname);
 
   return (
     <>
       <div className='w-full'>
-        {/*         {
-          location.pathname === "/countries" ? <NavBar /> : null
-        } */}
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/countries" element={<HomePage />} />
