@@ -1,5 +1,5 @@
 import React from "react";
-import s from './Nav.module.css';
+import s from './nav.module.css';
 import img from '../../assets/earth.png'
 import { Link } from "react-router-dom";
 import Search from "../Search/Search";

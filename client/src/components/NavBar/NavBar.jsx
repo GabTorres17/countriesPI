@@ -1,5 +1,5 @@
 import React from 'react';
-import './navbar.module.css';
+import './navBar.module.css';
 import { NavLink } from 'react-router-dom';
 import Search from "../../components/Search/Search";
 
