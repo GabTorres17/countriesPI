@@ -23,10 +23,10 @@ const LandingPage = () => {
                 <div className={`${styles.star} ${styles.star7}`}></div>
                 <div className={`${styles.star} ${styles.star8}`}></div>
                 <div className={styles.intro}>
-                    <h1>Bienvenidos a mi PI de Countries</h1>
-                    <p>Disfruta tu estadía en mi proyecto individual, tengo muchos países de todas las formas y colores.</p>
+                    <h1>Welcome to my Countries Project</h1>
+                    <p>Enjoy your stay! This is the first project I worked on. Here you can find a great selection of countries and filter them using advanced filters.</p>
                     <div className={styles.start}>
-                        <button onClick={goToHome}>Comenzar</button>
+                        <button onClick={goToHome}>Start</button>
                     </div>
                 </div>
                 <div className={styles.planetPosition}>

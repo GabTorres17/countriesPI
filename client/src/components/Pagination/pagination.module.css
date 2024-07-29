@@ -1,7 +1,13 @@
 .container {
-    display: flexbox;
+    display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px;
+    background-color: rgb(49, 49, 49);
+    height: 60px;
+    border-radius: 30px;
+    box-shadow: 5px 10px 10px black;
 }
 
 .input {
@@ -10,4 +16,19 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
+}
+
+button {
+    background-color: #000;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+    background-color: #fff;
+    color: #000;
 }
