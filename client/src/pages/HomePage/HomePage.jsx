@@ -8,7 +8,7 @@ import Create from "../../components/Create/Create";
 import Check from "../../components/Check/Check";
 import s from "./HomePage.module.css";
 import Cards from "../../components/Cards/Cards";
-import Pagination from '../../components/Pagination/pagination';
+import Pagination from '../../components/Pagination/Pagination';
 import Nav from "../../components/Nav/Nav"
 import BackgroundSlider from '../../components/Background/BackgroundSlider';
 
