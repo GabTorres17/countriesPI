@@ -3,6 +3,7 @@ import styles from "./DetailPage.module.css";
 import { getCountryById, backNavigation } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
+import BackgroundSlider from "../../components/Background/BackgroundSlider";
 
 
 export default function DetailPage() {
@@ -30,6 +31,7 @@ export default function DetailPage() {
   {
     return (
       <div>
+        <BackgroundSlider />
         <button onClick={() => history(-1)}>←</button>
         <div className={styles.container}>
           <div className={styles.leftColumn}>

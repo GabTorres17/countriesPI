@@ -10,6 +10,7 @@ import s from "./HomePage.module.css";
 import Cards from "../../components/Cards/Cards";
 import Pagination from '../../components/Pagination/pagination';
 import Nav from "../../components/Nav/Nav"
+import BackgroundSlider from '../../components/Background/BackgroundSlider';
 
 const HomePage = () => {
     const dispatch = useDispatch()
@@ -33,12 +34,12 @@ const HomePage = () => {
         }
         dispatch(getActivities())
     }, [dispatch, sorting])
-    console.log(activities)
     return (
         <div className={s.container}>
+            <BackgroundSlider />
             {sorting.length > 0 ?
                 <div>
-                    <button onClick={() => history(-1)}>←</button>
+                    <button className={s.backButton} onClick={() => history(-1)}>←</button>
                     <Nav setForm={setForm} setInput={setInput} setCurrent={setCurrent} searchBar='true' />
                     {error && <Errors />}
                     {check && <Check />}
@@ -48,7 +49,7 @@ const HomePage = () => {
                         <div className={s.grid}>
                             {sorting.slice((current - 1) * perPage, (current - 1) * perPage + perPage).map((country, id) => {
                                 return (
-                                    <div key={id}>
+                                    <div key={id} className={s.cards}>
                                         <Cards countries={[country]} />
                                     </div>
                                 )

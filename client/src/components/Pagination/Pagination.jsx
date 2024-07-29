@@ -45,12 +45,12 @@ const Pagination = ({ current, setCurrent, max, input, setInput }) => {
 
     return (
         <div className={styles.container}>
-            <button disabled={current === 1} className={styles.button} onClick={firstPage}>{'<|'}</button>
+            <button disabled={current === 1} className={styles.button} onClick={firstPage}>{'<||'}</button>
             <button disabled={current === 1} className={styles.button} onClick={previous}>{'<|'}</button>
             <input className={styles.input} type="text" maxLength='2' name="page" onChange={(e) => setInput(e.target.value)} value={input} onKeyDown={(e) => onKeyDown(e)} />
             <span>of {max}</span>
             <button disabled={current === max} className={styles.btn} onClick={next} >{'|>'}</button>
-            <button disabled={current === max} className={styles.btn} onClick={lastPage} >{'|>'}</button>
+            <button disabled={current === max} className={styles.btn} onClick={lastPage} >{'||>'}</button>
         </div>
     )
 }

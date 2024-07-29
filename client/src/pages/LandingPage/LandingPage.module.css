@@ -8,13 +8,118 @@
   }
 }
 
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  right: 30%;
+  width: 10cm;
+  bottom: 10%;
+}
+
+.landingPage {
+  height: 100vh;
+  width: 100%;
+}
+
 .header {
   text-align: center;
   margin-bottom: 20px;
 }
 
-.body {
-  background-color: #333;
+
+section {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000200;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.star {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  animation: animate 8s ease-in-out infinite,
+    backgroundmove 16s linear infinite;
+
+}
+
+.star1 {
+  animation-delay: 0s;
+  background: url(../../assets/stars/star1.png);
+}
+
+.star2 {
+  animation-delay: -1s;
+  background: url(../../assets/stars/star2.png);
+}
+
+.star3 {
+  animation-delay: -2s;
+  background: url(../../assets/stars/star3.png);
+}
+
+.star4 {
+  animation-delay: -3s;
+  background: url(../../assets/stars/star4.png);
+}
+
+.star5 {
+  animation-delay: -4s;
+  background: url(../../assets/stars/star5.png);
+}
+
+.star6 {
+  animation-delay: -5s;
+  background: url(../../assets/stars/star6.png);
+}
+
+.star7 {
+  animation-delay: -6s;
+  background: url(../../assets/stars/star7.png);
+}
+
+.star8 {
+  animation-delay: -7s;
+  background: url(../../assets/stars/star8.png);
+}
+
+@keyframes animate {
+
+  0%,
+  20%,
+  40%,
+  60%,
+  80%,
+  100% {
+    opacity: 0;
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    opacity: 1;
+  }
+}
+
+@keyframes backgroundmove {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(2);
+  }
 }
 
 .planetPosition {
@@ -60,6 +165,10 @@ img {
   height: 130%;
   position: absolute;
   animation: spin 12s linear 0s infinite;
+}
+
+.start {
+  margin-top: 2cm;
 }
 
 .start button {

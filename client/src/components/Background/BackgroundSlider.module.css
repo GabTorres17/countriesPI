@@ -1,0 +1,12 @@
+.bgContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1s ease-in-out;
+    z-index: -1;
+    /* pone el fondo detras de otros contenidos */
+}

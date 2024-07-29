@@ -17,7 +17,7 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className='w-full'>
         {/*         {
           location.pathname === "/countries" ? <NavBar /> : null
         } */}
