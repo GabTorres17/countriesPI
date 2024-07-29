@@ -13,9 +13,11 @@ export const GET_COUNTRY_BY_ID = 'GET_COUNTRY_BY_ID';
 export const BACK_NAVIGATION = "BACK_NAVIGATION";
 
 
+const apiURL = import.meta.env.VITE_API_URL;
+
 export const getCountries = () => async dispatch => {
     try {
-        let res = await axios.get('http://localhost:3001/countries')
+        let res = await axios.get(`${apiURL}/countries`)
         return dispatch({ type: GET_ALL_COUNTRIES, payload: res.data })
     } catch (error) {
         console.log(error.message)
@@ -23,7 +25,7 @@ export const getCountries = () => async dispatch => {
 }
 export const getCountryById = (id) => async dispatch => {
     try {
-        let res = await axios.get(`http://localhost:3001/countries/${id}`)
+        let res = await axios.get(`${apiURL}/countries/${id}`)
         return dispatch({ type: GET_COUNTRY_BY_ID, payload: res.data })
 
     } catch (error) {
@@ -34,7 +36,7 @@ export const backNavigation = () => ({
     type: BACK_NAVIGATION,
 });
 export const getActivities = () => async dispatch => {
-    let json = await axios.get('http://localhost:3001/activities')
+    let json = await axios.get(`${apiURL}/activities`)
     return dispatch({ type: GET_ACTIVITIES, payload: json.data })
 }
 
@@ -55,7 +57,7 @@ export const continent = payload => dispatch => {
 
 export const getByName = (name) => async dispatch => {
     try {
-        let json = await axios.get(`http://localhost:3001/countries?name=${name}`)
+        let json = await axios.get(`${apiURL}/countries?name=${name}`)
         if (json.data.length === 0) return dispatch({ type: ERROR })
         else return dispatch({ type: SEARCH_BY_NAME, payload: json.data })
     } catch (error) {

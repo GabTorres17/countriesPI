@@ -59,7 +59,8 @@ const Create = ({ setForm }) => {
     const handleCreate = async (e) => {
         e.preventDefault();
         try {
-            const newActivity = await axios.post("http://localhost:3001/activities", create);
+            const apiURL = import.meta.env.VITE_API_URL;
+            const newActivity = await axios.post(`${apiURL}/activities`, create);
 
             if (newActivity.status === 200) {
                 setForm(false);
