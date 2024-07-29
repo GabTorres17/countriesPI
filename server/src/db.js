@@ -14,10 +14,10 @@ const sequelize = new Sequelize({
   dialectOptions: {
     ssl: process.env.DB_SSL === 'true' ? {
       require: true,
-      rejectUnauthorized: false // Ajusta esto según tu configuración de certificados SSL
+      rejectUnauthorized: false
     } : false
   },
-  logging: false // Opcional: desactivar el registro de consultas
+  logging: false
 });
 
 const basename = path.basename(__filename);
