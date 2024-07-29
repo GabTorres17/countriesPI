@@ -3,20 +3,23 @@ const { Sequelize } = require("sequelize");
 
 const fs = require('fs');
 const path = require('path');
-const {
-  DB_USER, DB_PASSWORD, DB_HOST, DB_NAME
-} = process.env;
 
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, {
-  logging: false,
-  native: false,
+const sequelize = new Sequelize({
+  database: process.env.DB_DATABASE,
+  username: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  dialect: 'postgres',
   dialectOptions: {
-    ssl: {
-      require: true, // Hacer que Sequelize requiera SSL
-      rejectUnauthorized: false // Esto es importante si estás usando un certificado autofirmado
-    }
-  }
+    ssl: process.env.DB_SSL === 'true' ? {
+      require: true,
+      rejectUnauthorized: false // Ajusta esto según tu configuración de certificados SSL
+    } : false
+  },
+  logging: false // Opcional: desactivar el registro de consultas
 });
+
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
