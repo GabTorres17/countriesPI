@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from './Search.module.css'
+import styles from './search.module.css'
 import { useDispatch } from "react-redux";
 import { getByName } from "../../redux/actions";
 
