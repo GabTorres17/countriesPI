@@ -17,7 +17,7 @@ const apiURL = import.meta.env.VITE_API_URL;
 
 export const getCountries = () => async dispatch => {
     try {
-        let res = await axios.get(`${apiURL}/countries`)
+        let res = await axios.get('https://countriespi-g2bf.onrender.com/countries')
         return dispatch({ type: GET_ALL_COUNTRIES, payload: res.data })
     } catch (error) {
         console.log(error.message)
@@ -36,7 +36,7 @@ export const backNavigation = () => ({
     type: BACK_NAVIGATION,
 });
 export const getActivities = () => async dispatch => {
-    let json = await axios.get(`${apiURL}/activities`)
+    let json = await axios.get('https://countriespi-g2bf.onrender.com/activities')
     return dispatch({ type: GET_ACTIVITIES, payload: json.data })
 }
 
