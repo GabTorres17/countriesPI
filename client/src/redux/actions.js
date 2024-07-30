@@ -13,8 +13,6 @@ export const GET_COUNTRY_BY_ID = 'GET_COUNTRY_BY_ID';
 export const BACK_NAVIGATION = "BACK_NAVIGATION";
 
 
-const apiURL = import.meta.env.VITE_API_URL;
-
 export const getCountries = () => async dispatch => {
     try {
         let res = await axios.get('https://countriespi-g2bf.onrender.com/countries')
@@ -25,7 +23,7 @@ export const getCountries = () => async dispatch => {
 }
 export const getCountryById = (id) => async dispatch => {
     try {
-        let res = await axios.get(`${apiURL}/countries/${id}`)
+        let res = await axios.get(`https://countriespi-g2bf.onrender.com/countries/${id}`)
         return dispatch({ type: GET_COUNTRY_BY_ID, payload: res.data })
 
     } catch (error) {
@@ -57,7 +55,7 @@ export const continent = payload => dispatch => {
 
 export const getByName = (name) => async dispatch => {
     try {
-        let json = await axios.get(`${apiURL}/countries?name=${name}`)
+        let json = await axios.get(`https://countriespi-g2bf.onrender.com/countries?name=${name}`)
         if (json.data.length === 0) return dispatch({ type: ERROR })
         else return dispatch({ type: SEARCH_BY_NAME, payload: json.data })
     } catch (error) {

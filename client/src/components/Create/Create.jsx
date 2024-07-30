@@ -59,8 +59,7 @@ const Create = ({ setForm }) => {
     const handleCreate = async (e) => {
         e.preventDefault();
         try {
-            const apiURL = import.meta.env.VITE_API_URL;
-            const newActivity = await axios.post(`${apiURL}/activities`, create);
+            const newActivity = await axios.post('https://countriespi-g2bf.onrender.com/activities', create);
 
             if (newActivity.status === 200) {
                 setForm(false);
