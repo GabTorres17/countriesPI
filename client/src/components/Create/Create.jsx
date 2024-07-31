@@ -96,14 +96,14 @@ const Create = ({ setForm }) => {
                         <h2 className={styles.title}>Create Activity</h2>
                         <div className={styles.column}>
                             <div className={styles.div}>
-                                <label className={styles.label} >Nombre</label>
+                                <label className={styles.label} >Nombre:</label>
                                 <input type="text" id="name" name="name" onChange={handleInput} className={styles.input} autoComplete='off' />
                             </div>
                             {error.name && <span className={styles.x} >❌</span>}
                         </div>
                         <div className={styles.column}>
                             <div className={styles.div} >
-                                <label className={styles.label} >Dificultad</label>
+                                <label className={styles.label} >Dificultad:</label>
                                 <select id="dificultad" name="dificultad" onChange={handleInput} className={styles.input}>
                                     <option value="">--Selecciona la dificultad--</option>
                                     <option value="1">⭐ ☆ ☆ ☆ ☆</option>
@@ -117,14 +117,14 @@ const Create = ({ setForm }) => {
                         </div>
                         <div className={styles.column}>
                             <div className={styles.div} >
-                                <label className={styles.label} >Duracion (hrs.)</label>
+                                <label className={styles.label} >Duracion: (hrs.)</label>
                                 <input type="number" id="duracion" name="duracion" onChange={handleInput} className={styles.input} min='1' max='100' />
                             </div>
                             {error.duracion && <span className={styles.x} >❌</span>}
                         </div>
                         <div className={styles.column}>
                             <div className={styles.div} >
-                                <label className={styles.label} >Temporada</label>
+                                <label className={styles.label} >Temporada: </label>
                                 <select id="temporada" name="temporada" onChange={handleInput} className={styles.input} >
                                     <option value=''>--Elige Temporada--</option>
                                     <option value="Verano">Verano</option>
@@ -137,7 +137,7 @@ const Create = ({ setForm }) => {
                         </div>
                         <div className={styles.column}>
                             <div className={styles.div}>
-                                <label className={styles.label} >Países</label>
+                                <label className={styles.label} >Países: </label>
                                 <select name="country" onChange={handleSelect} className={styles.input} >
                                     <option value='countries' >--Elige los países--</option>
                                     {countries?.map((e, i) => <option key={e.id} value={e.id}>{e.name}</option>)}

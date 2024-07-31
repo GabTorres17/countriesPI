@@ -32,11 +32,11 @@ export default function DetailPage() {
     return (
       <div>
         <BackgroundSlider />
-        <button onClick={() => history(-1)}>←</button>
+        <button className={styles.back} onClick={() => history(-1)}>←</button>
         <div className={styles.container}>
           <div className={styles.leftColumn}>
             <h1>{country.name}</h1>
-            <img src={country.imgBandera} alt="Country Flag" />
+            <img className={styles.detailImg} src={country.imgBandera} alt="Country Flag" />
           </div>
           <div className={styles.rightColumn}>
             <h2>ID: {country.id}</h2>
@@ -65,7 +65,7 @@ export default function DetailPage() {
               </div>
             ))
           ) : (
-            <h2>Este país no contiene actividades hasta el momento</h2>
+            <h2 className={styles.noAct}>Este país no contiene actividades hasta el momento</h2>
           )}
         </div>
       </div>
