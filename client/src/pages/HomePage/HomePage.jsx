@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { getActivities, getCountries, backNavigation } from '../../redux/actions';
-import { useNavigate } from 'react-router-dom';
+import { getActivities, getCountries } from '../../redux/actions';
 import Filters from "../../components/Filter/Filter";
 import Errors from "../../components/Errors/Errors";
 import Create from "../../components/Create/Create";
@@ -19,7 +18,6 @@ const HomePage = () => {
     const check = useSelector(state => state.check)
     const [form, setForm] = useState(false)
     const activities = useSelector(state => state.activities)
-    const history = useNavigate();
 
     const [sort, setSort] = useState(true)
 
@@ -39,7 +37,6 @@ const HomePage = () => {
             <BackgroundSlider />
             {sorting.length > 0 ?
                 <div>
-                    <button className={s.backButton} onClick={() => history(-1)}>←</button>
                     <Nav setForm={setForm} setInput={setInput} setCurrent={setCurrent} searchBar='true' />
                     {error && <Errors />}
                     {check && <Check />}
