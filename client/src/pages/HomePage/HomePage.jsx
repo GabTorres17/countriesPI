@@ -24,7 +24,7 @@ const HomePage = () => {
 
     const [input, setInput] = useState(1)
     const [current, setCurrent] = useState(1)
-    const [perPage] = useState(10)
+    const [perPage] = useState(12)
     const [Loading, setLoading] = useState(true);
     const max = Math.ceil(sorting.length / perPage);
 
