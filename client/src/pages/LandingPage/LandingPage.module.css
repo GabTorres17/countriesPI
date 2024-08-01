@@ -190,3 +190,12 @@ img {
   margin-top: 20px;
   text-align: center;
 }
+
+.welcome {
+  position: relative;
+  left: 0cm;
+  bottom: 0cm;
+  top: 0cm;
+  right: 0cm;
+  width: 10cm;
+}

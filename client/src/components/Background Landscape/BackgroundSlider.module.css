@@ -8,5 +8,4 @@
     background-position: center;
     transition: background-image 1s ease-in-out;
     z-index: -1;
-    /* pone el fondo detras de otros contenidos */
 }
