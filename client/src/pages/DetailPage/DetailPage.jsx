@@ -50,7 +50,7 @@ export default function DetailPage() {
             <h2>Continent: {country.continente}</h2>
             <h2>Capital: {country.capital}</h2>
             <h2>Subregion: {country.subregion}</h2>
-            <h2>Area: {country.area}</h2>
+            <h2>Area: {country.area} km2</h2>
             <h2>Population: {country.poblacion} inhabitants</h2>
           </div>
         </div>
