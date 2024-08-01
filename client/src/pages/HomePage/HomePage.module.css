@@ -11,10 +11,10 @@ body {
 
 .container {
     min-height: 100vh;
-    /* Establece la altura mínima al 100% del viewport */
     width: 100%;
     display: flex;
     flex-direction: column;
+    z-index: 0;
 }
 
 .gridContainer {

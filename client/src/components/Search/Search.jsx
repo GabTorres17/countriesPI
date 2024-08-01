@@ -22,9 +22,9 @@ const Search = ({ setCurrent, setInput }) => {
 
     return (
         <div className={styles.searchBar}>
-            <input id="search" type="search" className={styles.input} placeholder="Search for country..." onChange={(e) => handleSearch(e)} value={search} autoComplete='off' />
+            <input id="search" type="search" className={styles.input} placeholder="Search country..." onChange={(e) => handleSearch(e)} value={search} autoComplete='off' />
             <button type="submit" className={styles.searchButton} onClick={handleSubmit} ><span className="material-symbols-outlined">
-                Buscar
+                Search
             </span></button>
         </div>
     )

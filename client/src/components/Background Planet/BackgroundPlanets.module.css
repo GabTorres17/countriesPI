@@ -1,0 +1,163 @@
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.landingPage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+section {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #000200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.star {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    animation: animate 8s ease-in-out infinite,
+        backgroundmove 16s linear infinite;
+
+}
+
+.star1 {
+    animation-delay: 0s;
+    background: url(../../assets/stars/star1.png);
+}
+
+.star2 {
+    animation-delay: -1s;
+    background: url(../../assets/stars/star2.png);
+}
+
+.star3 {
+    animation-delay: -2s;
+    background: url(../../assets/stars/star3.png);
+}
+
+.star4 {
+    animation-delay: -3s;
+    background: url(../../assets/stars/star4.png);
+}
+
+.star5 {
+    animation-delay: -4s;
+    background: url(../../assets/stars/star5.png);
+}
+
+.star6 {
+    animation-delay: -5s;
+    background: url(../../assets/stars/star6.png);
+}
+
+.star7 {
+    animation-delay: -6s;
+    background: url(../../assets/stars/star7.png);
+}
+
+.star8 {
+    animation-delay: -7s;
+    background: url(../../assets/stars/star8.png);
+}
+
+@keyframes animate {
+
+    0%,
+    20%,
+    40%,
+    60%,
+    80%,
+    100% {
+        opacity: 0;
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        opacity: 1;
+    }
+}
+
+@keyframes backgroundmove {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(2);
+    }
+}
+
+.planetPosition {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    width: 400px;
+    height: 400px;
+    justify-content: center;
+    align-items: center;
+}
+
+.farOrbit {
+    width: 100%;
+    height: 100%;
+    background-color: #afa5a53b;
+    border-radius: 50%;
+}
+
+.nearOrbit {
+    width: 85%;
+    height: 85%;
+    background-color: #33333347;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.mainPlanet {
+    position: absolute;
+    width: 64%;
+    height: 64%;
+    background-image: url(../../assets/planeta-tierra3.png);
+}
+
+img {
+    width: 25%;
+}
+
+.satellite {
+    width: 100%;
+    height: 130%;
+    position: absolute;
+    animation: spin 12s linear 0s infinite;
+}

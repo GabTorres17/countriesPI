@@ -42,7 +42,9 @@ h1 {
 
 .activity {
     display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
     margin: 60px 20px 20px 20px;
     padding: 20px;
     border-radius: 10px;
@@ -52,6 +54,7 @@ h1 {
     margin-left: auto;
     margin-right: auto;
     position: relative;
+    gap: 1cm;
 }
 
 .back {
@@ -63,7 +66,9 @@ h1 {
 
 .noAct {
     position: absolute;
-    left: 7%;
+    display: flex;
     font-size: 3em;
     width: 100%;
+    justify-content: center;
+    align-items: center;
 }

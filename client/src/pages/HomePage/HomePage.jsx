@@ -9,7 +9,8 @@ import s from "./HomePage.module.css";
 import Cards from "../../components/Cards/Cards";
 import Pagination from '../../components/Pagination/Pagination';
 import Nav from "../../components/Nav/Nav"
-import BackgroundSlider from '../../components/Background/BackgroundSlider';
+import Loader from '../../components/Loader/Loader';
+/* import BackgroundSlider from '../../components/Background/BackgroundSlider'; */
 
 const HomePage = () => {
     const dispatch = useDispatch()
@@ -24,17 +25,23 @@ const HomePage = () => {
     const [input, setInput] = useState(1)
     const [current, setCurrent] = useState(1)
     const [perPage] = useState(10)
+    const [Loading, setLoading] = useState(true);
     const max = Math.ceil(sorting.length / perPage);
 
     useEffect(() => {
         if (!sorting[0]) {
-            dispatch(getCountries())
+            dispatch(getCountries());
         }
-        dispatch(getActivities())
-    }, [dispatch, sorting])
+        dispatch(getActivities()).then(() => setLoading(false));
+    }, [dispatch, sorting]);
+
+    if (Loading) {
+        return <Loader />;
+    }
+
     return (
         <div className={s.container}>
-            <BackgroundSlider />
+            {/*             <BackgroundSlider /> */}
             {sorting.length > 0 ?
                 <div>
                     <Nav setForm={setForm} setInput={setInput} setCurrent={setCurrent} searchBar='true' />
