@@ -5,13 +5,14 @@ import LandingPage from './pages/LandingPage/LandingPage'
 import HomePage from './pages/HomePage/HomePage'
 import FormPage from './pages/FormPage/FormPage';
 import DetailPage from './pages/DetailPage/DetailPage';
-import NavBar from './components/NavBar/NavBar'
 import NotFound from './pages/NotFound/NotFound'
+import BackgroundPlanets from './components/Background Planet/BackgroundPlanets';
 
 function App() {
   return (
     <>
       <div className='w-full'>
+        <BackgroundPlanets />
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/countries" element={<HomePage />} />

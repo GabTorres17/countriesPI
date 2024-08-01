@@ -15,14 +15,14 @@ const Check = () => {
     return (
         <div className={styles.container}>
             <div className={styles.card}>
-                <div className={styles.flex}>
+                {/*                 <div className={styles.flex}>
                     <button className={styles.btn} onClick={handleClick}>X</button>
-                </div>
+                </div> */}
                 <div className={styles.title} >
                     <h1 className={styles.h1} >Activity Created!</h1>
                 </div>
                 <div className={styles.status}>
-                    <img className={styles.img} src={img} alt="check" />
+                    <img className={styles.check} src={img} alt="check" />
                 </div>
             </div>
         </div>

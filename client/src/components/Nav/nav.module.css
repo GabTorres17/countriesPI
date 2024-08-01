@@ -3,11 +3,21 @@
     background-color: #333;
     color: #fff;
     padding: 10px 20px;
+    display: flex;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10cm;
+    margin-top: 1cm;
+}
+
+.navigate {
+    display: flex;
+    gap: 1cm;
 }
 
 .flex {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     gap: 5cm;
 }
@@ -28,6 +38,8 @@
     font-size: 1.5rem;
     font-weight: bold;
     margin: 0;
+    position: unset;
+    width: 4cm;
 }
 
 .back {
